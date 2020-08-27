@@ -1,3 +1,8 @@
+/**
+*Computing Employee wages for multiple companies according to different user cases.
+*
+*/
+
 import Empwage.CompanyEmpWage;
 import java.util.*;
 
