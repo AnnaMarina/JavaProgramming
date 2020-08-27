@@ -9,13 +9,16 @@ public class empWageBuilder {
 	         int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 	         switch(empCheck) {
 	         case FULL_TIME:
-	        	 empHours = 8;
-        		 break;
+			System.out.println("Employee present for full day");
+	        	empHours = 8;
+        		break;
 		//partime
 	         case PART_TIME:
-        		 empHours = 4;
-        		 break;
+			System.out.println("Employee present for half day");
+        		empHours = 4;
+        		break;
         	default:
+			System.out.println("Employee Absent");
         		empHours = 0;
         	 }
         	 int empDailyWage = empHours * wagePerHour ;
