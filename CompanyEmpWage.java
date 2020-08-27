@@ -15,8 +15,7 @@ public class CompanyEmpWage {
 	    }
 	    public void setTotalEmpWage(int totalWage ) {
 	    	this.totalWage = totalWage;
-	    }
-
+	  }
 	    public String toString() {
 	        System.out.println("\n**************EMPLOYEE DETAILS**************");
 	        return " COMPANY NAME  : "+company+"\n MONTHLY WAGE  : "+totalWage+"/- \n";
