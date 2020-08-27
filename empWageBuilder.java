@@ -42,5 +42,4 @@ public class empWageBuilder {
 	         }
 	         System.out.println("The total wage for employee in the company "+More.company+" is " +totalWage+"/- and total hours worked is "+totalEmpHours);
 	}
-
 }
