@@ -1,12 +1,14 @@
 public class empWageBuilder {
 	public static final int FULL_TIME=1;
 	public static final int PART_TIME=2;
+	public static final int MAX_HOURS=100;
+	public static final int MAX_DAYS=20; //workingdays
+	public static final int WAGE_PER_HOUR=8;
 	public static void main(String args[]) {
-		int empHours=0, wagePerHour=8, workingdays=20, totalWage=0, d=0;
+		int empHours=0, totalWage=0, d=0, totalEmpHours=0 ;
 		System.out.println("Welcome to Employee Wage Computation");
-         do {
+		while(d < MAX_DAYS && totalEmpHours < 100 ) {
         	int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-        	workingdays-=1;
         	switch(empCheck) {
         	case FULL_TIME:
         		empHours = 8;
@@ -20,11 +22,12 @@ public class empWageBuilder {
         		empHours = 0;
         		//System.out.println("Employee Absent");
         	}
-        	int empDailyWage = empHours * wagePerHour ;
+        	int empDailyWage = empHours * WAGE_PER_HOUR ;
         	totalWage+=empDailyWage;
+        	totalEmpHours+=empHours;
         	d+=1;
         	System.out.println("Wage for day "+d+" : "+empDailyWage);
-         	} while(workingdays > 0);
-         System.out.println("The total wage is : "+totalWage);
+         	} 
+         System.out.println("The total wage is "+totalWage+"/- and hours worked is "+totalEmpHours);
 	}
 }
