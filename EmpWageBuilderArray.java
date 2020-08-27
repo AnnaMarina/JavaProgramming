@@ -1,6 +1,12 @@
 import Empwage.CompanyEmpWage;
 
-public class EmpWageBuilderArray {
+interface EmpWageInterface {
+	public void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int maxHours);
+	public int computeEmpWage(CompanyEmpWage companyEmpWage);
+	public void computeEmpWage();
+}
+
+public class EmpWageBuilderArray implements EmpWageInterface {
 	public static final int FULL_TIME=1;
 	public static final int PART_TIME=2;
 
@@ -10,18 +16,18 @@ public class EmpWageBuilderArray {
 	public EmpWageBuilderArray() {
     		companyEmpWageArray = new CompanyEmpWage[5];
 	}
-	private void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int maxHours) {
+	public void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int maxHours) {
     		companyEmpWageArray[totalCompanies] = new CompanyEmpWage(company, wagePerHour, workingDays, maxHours);
     		totalCompanies++;
 	}
 
-	private void computeEmpWage() {
+	public void computeEmpWage() {
     		for (int i=0;i<totalCompanies;i++) {
     			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
     			System.out.println(companyEmpWageArray[i]);
     	}
 }
-	private int computeEmpWage(CompanyEmpWage companyEmpWage) {
+	public int computeEmpWage(CompanyEmpWage companyEmpWage) {
     		int totalWage=0, empHours=0, days=0, totalEmpHours=0, empDailyWage=0;
         	System.out.println("Welcome to Employee Wage Computation \n");
         	System.out.println("*****DAILY WAGE COMPUTAION****** \n");
