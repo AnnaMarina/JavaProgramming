@@ -11,6 +11,7 @@ public class empWageBuilder {
 	         case FULL_TIME:
 	        	 empHours = 8;
         		 break;
+		//partime
 	         case PART_TIME:
         		 empHours = 4;
         		 break;
