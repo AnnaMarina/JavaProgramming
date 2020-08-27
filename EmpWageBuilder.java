@@ -1,7 +1,13 @@
 import Empwage.CompanyEmpWage;
-import java.util.LinkedList;
+import java.util.*;
 
-public class EmpWageBuilder {
+interface ComputeEmpWageI {
+	public void addCompanyEmpWage(String company, int wagePerHour, int workingDays, int maxHours);
+	public void computeEmpWage();
+	public int computeEmpWage(CompanyEmpWage companyEmpWage);
+	}
+
+public class EmpWageBuilder implements ComputeEmpWageI {
         public static final int FULL_TIME=1;
         public static final int PART_TIME=2;
 
@@ -15,14 +21,13 @@ public class EmpWageBuilder {
         	CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHour, workingDays, maxHours);
         	companyEmpWageList.add(companyEmpWage);
         }
-
-        private void computeEmpWage() {
+	public void computeEmpWage() {
         	for (int i=0;i< companyEmpWageList.size();i++) {
         		CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
         		companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
         		System.out.println(companyEmpWage);
         	}
-        }
+	}
         public int computeEmpWage(CompanyEmpWage companyEmpWage) {
         	int totalWage=0, empHours=0, days=0, totalEmpHours=0, empDailyWage=0;
         	System.out.println("Welcome to Employee Wage Computation \n");
@@ -53,7 +58,7 @@ public class EmpWageBuilder {
         }
 
         public static void main(String args[]) {
-        	EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+        	ComputeEmpWageI empWageBuilder = new EmpWageBuilder();
         	empWageBuilder.addCompanyEmpWage("More",8,20,100);
         	empWageBuilder.addCompanyEmpWage("KR Bakers",10,25,100);
         	empWageBuilder.computeEmpWage();
